@@ -32,3 +32,6 @@ params = grid_result.cv_results_['params']
 
 for mean,param in zip(means,params):
     print("%f  with:   %r" % (mean,param))
+
+#batch size, how many times we divide our dataset. i.e. dataset = 1000 images, & batch_size = 10, then the network will create 100 batches that will go through the network in one epoch.
+#epochs is the numer of times that the batches will go through the neural network
