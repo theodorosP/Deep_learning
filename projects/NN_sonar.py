@@ -14,7 +14,7 @@ y = dataset[:, 60]
 
 encoder = sklearn_preprocessing.LabelEncoder()
 encoder.fit(y)
-encoded_y = encoder.transform(Y)
+encoded_y = encoder.transform(y)
 dummy_y = keras_utils.np_utils.to_categorical(encoded_y)
 
 def baseline_model():
