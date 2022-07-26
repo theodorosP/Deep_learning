@@ -7,7 +7,7 @@ import sklearn.preprocessing as sklearn_preprocessing
 import keras.utils as keras_utils
 import sklearn.model_selection as model_selection
 
-dataframe = pd.read_csv("sonar.csv", header = 0)
+dataframe = pd.read_csv("sonar.csv", header = None)
 dataset = dataframe.values
 x = dataset[:, 0 : 60]
 y = dataset[:, 60]
