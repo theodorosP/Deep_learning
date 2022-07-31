@@ -35,9 +35,11 @@ results = model_selection.cross_val_score(model, X_train, y_train, cv = kfold)
 print(results.mean())
 
 from keras.callbacks import History 
+from keras.callbacks import EarlyStopping
 
-history = model.fit(X_test, y_train, epochs = 40, batch_size = 5)
+es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=15)
 
+history = model.fit(X_test, y_train, epochs = 20, batch_size = 50, callbacks=[es])
 acc = history.history.keys()
 val_loss = history.history["val_loss"]
 los = history.history["loss"]
