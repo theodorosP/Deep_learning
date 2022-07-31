@@ -1,9 +1,14 @@
 def plot_overfit_under_fit(my_model):
   
-  from keras.callbacks import History 
+  from keras.callbacks import History, EarlyStopping
   import matplotlib.pyplot as plt
 
-  history = model.fit(X_test, y_train, epochs = 40, batch_size = 5)
+  es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=15)
+
+  #es = EarlyStopping(monitor='val_loss', mode='min', verbose=4)
+
+  history = model.fit(X_test, y_train, epochs = 20, batch_size = 50, callbacks=[es])
+  
   acc = history.history.keys()
   val_loss = history.history["val_loss"]
   los = history.history["loss"]
