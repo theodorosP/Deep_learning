@@ -34,21 +34,3 @@ kfold = model_selection.KFold(n_splits=10, shuffle = True)
 results = model_selection.cross_val_score(model, X_train, y_train, cv = kfold)
 print(results.mean())
 
-from keras.callbacks import History 
-from keras.callbacks import EarlyStopping
-
-es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=15)
-
-history = model.fit(X_test, y_train, epochs = 20, batch_size = 50, callbacks=[es])
-acc = history.history.keys()
-val_loss = history.history["val_loss"]
-los = history.history["loss"]
-print(val_loss)
-
-epochs = range(1, len(val_loss) + 1)
-
-import matplotlib.pyplot as plt
-
-plt.plot(epochs, val_loss)
-plt.plot(epochs, los)
-plt.show()
