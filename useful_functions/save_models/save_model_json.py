@@ -3,5 +3,5 @@ def save_json_model(model):
   model_json = model.to_json()
   with open("model.json", "w") as json_file:
     json_file.write(model_json)
-  model.save_weigths("weights.h5")
+  model.save_weigths("model.h5")
   return json_file, weights.h5
