@@ -7,7 +7,7 @@ def plot_overfit_under_fit(my_model):
 
   #es = EarlyStopping(monitor='val_loss', mode='min', verbose=4)
 
-  history = model.fit(X_test, y_train, epochs = 20, batch_size = 50, callbacks=[es])
+  history = model.fit(X_train, y_train, epochs = 20, batch_size = 50, callbacks=[es])
   
   acc = history.history.keys()
   val_loss = history.history["val_loss"]
