@@ -1,7 +1,6 @@
-def save_json_model(m):
-  import keras.models as keras_models
-  model_json = m.to_json()
+def save_json_model(model_to_save):
+  model_json = model_to_save.model.to_json()
   with open("model.json", "w") as json_file:
     json_file.write(model_json)
-  w = m.save_weights("model.h5")
-  return json_file, w
+  model_to_save.model.save_weights("model.h5")
+  print("Saved model to disk")
